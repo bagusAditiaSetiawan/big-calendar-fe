@@ -29,6 +29,13 @@ export function signUp(payload :SignUpPayload) {
     })
 }
 
+export function signOut() {
+    return client.post("/auth/logout", {}, {
+        headers: {
+            ...getHeaderAuthorization()
+        }
+    })
+}
 export function getHeaderAuthorization() {
     return {
         'Authorization': `Bearer ${getToken()}`,
